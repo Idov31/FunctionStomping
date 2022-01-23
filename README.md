@@ -29,6 +29,9 @@ functionstomping.exe <pid>
 ## Setup
 Currently, the shellcode to run is just to pop a calculator, but all you need to do is replace the ```unsigned char shellcode[]``` with your shellcode. I used C++ 17 and VS2019 to compile the program with the C++ header and rust version 2021 to compile the rust program (you can see the dependencies in the Cargo.toml).
 
+## POC
+<img src="images/poc.png" />
+
 
 ## Disclaimer
 I'm not responsible in any way for any kind of damage that is done to your computer / program as cause of this project. This project is currently at alpha and I'm working to make it more stable, please take that in mind!<br /> If you found someone that published about this method before today (23-01-2022) please let me know so I can add an acknowledgment.

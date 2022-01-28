@@ -4,7 +4,7 @@
 ## Description
 This is a brand-new technique for shellcode injection to evade AVs and EDRs. This technique is inspired by Module Stomping and has some similarities. As to this date (23-01-2022) also <a href="https://github.com/hasherezade/hollows_hunter">hollows-hunter</a> doesn't find it.<br /><br />
 The big advantage of this technique is that it isn't overwritting an entire module or pe, just one function and the target process can still use any other function from the target module.<br /><br />
-The disadvantage is that it won't work for every function in the wild (but it will work for most of them), the exact explanation will be in my blog (COMING SOON).
+The disadvantage is that it won't work for every function in the wild (but it will work for most of them), the exact explanation is in my blog: <a href="https://idov31.github.io/2022-01-28-function-stomping/">The Good, The Bad And The Stomped Function</a>.
 
 ## Usage
 You either include the header to your program like this:

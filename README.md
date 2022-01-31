@@ -19,7 +19,7 @@ int main() {
 }
 ```
 
-Or use the rust program (COMING SOON):
+Or use the rust program:
 ```bash
 cd functionstomping
 cargo b
@@ -34,7 +34,7 @@ Currently, the shellcode to run is just to pop a calculator, but all you need to
 
 
 ## Disclaimer
-I'm not responsible in any way for any kind of damage that is done to your computer / program as cause of this project. This project is currently at alpha and I'm working to make it more stable, please take that in mind!<br /> If you found someone that published about this method before today (23-01-2022) please let me know so I can add an acknowledgment.
+I'm not responsible in any way for any kind of damage that is done to your computer / program as cause of this project. I'm happily accept contribution, make a pull request and I will review it!<br /> If you found someone that published about this method before today (23-01-2022) please let me know so I can add an acknowledgment.
 
 ## Acknowledgments
 https://github.com/countercept/ModuleStomping<br />

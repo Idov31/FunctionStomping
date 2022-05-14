@@ -7,6 +7,8 @@ The big advantage of this technique is that it isn't overwritting an entire modu
 The disadvantage is that it won't work for every function in the wild (but it will work for most of them), the exact explanation is in my blog: <a href="https://idov31.github.io/2022-01-28-function-stomping/">The Good, The Bad And The Stomped Function</a>.<br /><br />
 <b>NOTE: It is possible that AV will flag this, if the signature is a signature of msfvenom/metasploit it is fine! you just need to change the shellcode or encrypt it.</b>
 
+**UPDATE:** Apperantly this isn't the first PoC avaliable and RastaMouse wrote a [blog post](https://offensivedefence.co.uk/posts/module-stomping/) that does the exact same thing that FunctionStomping does in C#.
+
 ## Usage
 You either include the header to your program like this:
 ```cpp
@@ -37,8 +39,9 @@ Currently, the shellcode to run is just to pop a calculator, but all you need to
 
 
 ## Disclaimer
-I'm not responsible in any way for any kind of damage that is done to your computer / program as cause of this project. I'm happily accept contribution, make a pull request and I will review it!<br /> If you found someone that published about this method before today (23-01-2022) please let me know so I can add an acknowledgment.
+I'm not responsible in any way for any kind of damage that is done to your computer / program as cause of this project. I'm happily accept contribution, make a pull request and I will review it!
 
 ## Acknowledgments
 https://github.com/countercept/ModuleStomping<br />
-https://www.cyberark.com/resources/threat-research-blog/masking-malicious-memory-artifacts-part-iii-bypassing-defensive-scanners
+https://www.cyberark.com/resources/threat-research-blog/masking-malicious-memory-artifacts-part-iii-bypassing-defensive-scanners<br />
+https://offensivedefence.co.uk/posts/module-stomping/
